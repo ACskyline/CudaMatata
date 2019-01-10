@@ -18,7 +18,7 @@ Analysis
 
 ## 0. First thing first
 
-### Scan line rasterizer will crash when mesh goes behind the camera but tile based rasterizer won't
+### In this project, the scan line rasterizer will crash when mesh goes behind the camera but tile based rasterizer won't
 
 This is because the vertex behind the camera will be projected to the far end of the clip space as shown in the following picture. 
 
