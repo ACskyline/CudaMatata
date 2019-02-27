@@ -180,7 +180,7 @@ Another solution is to use global memory to store primitives for each tile(block
 
 ### analysis
 
-But there is something new worth noticing. This is the only scene in all the five scenes where the performance of tile based rasterizer is worse than scan line rasterizer when the mesh is close to the camera. One of reasons might be the triangles are relatively small in terms of pixels they occupy. This is good when we parallelize the primitives since one thread will not loop for too long which means we are distributing works among appropriate amount of threads. On the other hand, for tile based rasterizer, small triangles means for each tile(block), there will be more primitives stored in their shared memories, therefore each thread will loop for a longer time. This means we are not distributing our works appropriately. 
+There is something new worth noticing. This is the only scene in all the five scenes where the performance of tile based rasterizer is worse than scan line rasterizer when the mesh is close to the camera. One of reasons might be the triangles are relatively small in terms of pixels they occupy. This is good when we parallelize the primitives since one thread will not loop for too long which means we are distributing works among appropriate amount of threads. On the other hand, for tile based rasterizer, small triangles means for each tile(block), there will be more primitives stored in their shared memories, therefore each thread will loop for a longer time. This means we are not distributing our works appropriately. 
 
 ### images
 
