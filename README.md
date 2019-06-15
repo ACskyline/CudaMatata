@@ -140,7 +140,7 @@ One solution to solve the flickering triangle is to use a better algorithm to ch
 
 Another solution is to use global memory to store primitives for each tile(block), just like a [previous implementation](https://github.com/Aman-Sachan-asach/CUDA-Rasterizer) of this project did. But I don’t think that makes sense at all. Because from what I read online, tile based rendering utilize "on chip" memory to compensate for scarce global memory and its low accessing speed. And since "on chip" is equivalent to "shared memory" in CUDA lingo, I think it’s better to use it instead of global memory as the primitive buckets.
 
-To summarize, tile based rasterizer solves the limited band width problem by two aspects. The first aspect is lower the bandwidth of the rendering process by only render a part of the framebuffer (i.e. a tile) at a time. The second aspect is to increase efficiency by parallelize pixels instead of primitives. An optimization on the second part is to store global data (i.e. all primitive data since we are parallelizing pixels) in the "on chip" memory.
+To summarize, tile based rasterizer solves the limited bandwidth problem by two aspects. The first aspect is to lower the bandwidth of the rendering process by only rendering a part of the framebuffer (i.e. a tile) at a time. The second aspect is to increase efficiency by parallelize pixels instead of primitives, because we have more pixels than premitives per tile. An optimization on the second part is to store global data (i.e. all primitive data since we are parallelizing pixels) in the "on chip" memory.
 
 ### images
 
